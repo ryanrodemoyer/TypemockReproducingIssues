@@ -15,7 +15,7 @@ namespace ClassLibrary1.Tests
         public void Test01()
         {
             // arrange
-            var cm = Isolate.Fake.AllInstances<CacheManager>();
+            var cm = Isolate.Fake.AllInstances<CacheManager>(Members.ReturnRecursiveFakes, ConstructorWillBe.Called);
             Isolate.WhenCalled(() => cm.KeyExists("teams_data"))
                 .WillReturn(false);
 
@@ -38,7 +38,7 @@ namespace ClassLibrary1.Tests
         public void Test02()
         {
             // arrange
-            var cm = Isolate.Fake.AllInstances<CacheManager>();
+            var cm = Isolate.Fake.AllInstances<CacheManager>(Members.ReturnRecursiveFakes, ConstructorWillBe.Called);
             Isolate.WhenCalled(() => cm.KeyExists("teams_data"))
                 .WillReturn(true);
 
